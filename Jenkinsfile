@@ -1,12 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('GIT Checkout') {
-            steps {
-                cleanWs()
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '2ba93103-b0b7-4f87-8fe3-672661870b90', url: 'git@github.com:larx1/qa-demo.git']]])
-            }
-        }
         
         stage('Performance tests') {
             steps {
