@@ -1,10 +1,9 @@
 pipeline {
     agent any
     stages {
-        
         stage('Performance tests') {
             steps {
-                withEnv(['JMETER_HOME=/home/roberto/apache-jmeter-4.0/bin']) {
+	    withEnv(['JMETER_HOME=/home/roberto/apache-jmeter-4.0/bin']) {
                     sh '$JMETER_HOME/jmeter -n -t api_tests.jmx -l results.jtl'
                 }
             }
