@@ -3,7 +3,6 @@ pipeline {
     stages {
         stage('Performance tests') {
             steps {
-            cleanWs()     
 	    withEnv(['JMETER_HOME=/home/roberto/apache-jmeter-4.0/bin']) {
                     sh '$JMETER_HOME/jmeter -n -t api_tests.jmx -l results.jtl'
                 }
